@@ -14,10 +14,8 @@ Open source under the [MIT License](http://en.wikipedia.org/wiki/MIT_License).
 * deferred operation.
 ###
 Ext.define( 'Deft.promise.Deferred',
+	extend: 'Ext.Deferred',
 	alternateClassName: [ 'Deft.Deferred' ]
-	requires: [
-		'Deft.promise.Resolver'
-	]
 	
 	statics:
 		###*
@@ -27,9 +25,7 @@ Ext.define( 'Deft.promise.Deferred',
 		* @return {Deft.promise.Promise} Resolved Promise.
 		###
 		resolve: ( value ) ->
-			deferred = Ext.create( 'Deft.promise.Deferred' )
-			deferred.resolve( value )
-			return deferred.promise
+			return @callParent( arguments )
 		
 		###*
 		* Convenience method that returns a new Promise rejected with the specified reason.
@@ -38,27 +34,10 @@ Ext.define( 'Deft.promise.Deferred',
 		* @return {Deft.promise.Promise} Rejected Promise.
 		###
 		reject: ( reason ) ->
-			deferred = Ext.create( 'Deft.promise.Deferred' )
-			deferred.reject( reason )
-			return deferred.promise
-
-	###*
-	* @property {Deft.promise.Promise}
-	* Promise of the future value of this Deferred.
-	###
-	promise: null
-
-	###*
-	* @private
-	* @property {Deft.promise.Resolver}
-	* Internal Resolver for this Deferred.
-	###
-	resolver: null
+			return @callParent( arguments )
 	
 	constructor: ->
-		@resolver = Ext.create( 'Deft.promise.Resolver' )
-		@promise = @resolver.promise
-		return @
+		return @callParent( arguments )
 
 	###*
 	* Resolve this Deferred with the specified value.
@@ -69,8 +48,7 @@ Ext.define( 'Deft.promise.Deferred',
 	* @param {Mixed} value Value to resolve as either a fulfillment value or rejection reason.
 	###
 	resolve: ( value ) ->
-		@resolver.resolve( value )
-		return
+		return @callParent( arguments )
 
 	###*
 	* Reject this Deferred with the specified error.
@@ -81,8 +59,7 @@ Ext.define( 'Deft.promise.Deferred',
 	* @param {Error} reason Rejection reason.
 	###
 	reject: ( reason ) ->
-	    @resolver.reject( reason )
-	    return
+	    return @callParent( arguments )
 
 	###*
 	* Update progress for this Deferred, if it is still pending.
@@ -90,8 +67,7 @@ Ext.define( 'Deft.promise.Deferred',
 	* @param {Mixed} progress Progress value.
 	###
 	update: ( progress ) ->
-		@resolver.update( progress )
-		return
+		return @callParent( arguments )
 
 	###*
 	* Return the Promise of the future value of this Deferred.
@@ -99,5 +75,5 @@ Ext.define( 'Deft.promise.Deferred',
 	* @return {Deft.promise.Promise} Promise of the future value.
 	###
 	getPromise: ->
-		return @promise
+		return @callParent( arguments )
 )

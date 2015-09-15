@@ -203,8 +203,8 @@ Ext.define( 'Deft.promise.Promise',
 	* NOTE: {@link Deft.promise.Deferred Deferreds} are the mechanism used to create new Promises.
 	* @param {Deft.promise.Resolver} onRejected Callback to execute to transform a rejection reason.
 	###
-	constructor: ( @resolver ) ->
-		return @callParent( arguments )
+	constructor: ( resolver ) ->
+		return @callParent( [resolver] )
 
 	###*
     * Attaches onFulfilled and onRejected callbacks that will be
@@ -307,7 +307,7 @@ Ext.define( 'Deft.promise.Promise',
 	* @param {Error} reason Cancellation reason.
 	###
 	cancel: ( reason = null ) ->
-		return @callParent( arguments )
+		return @callParent( [reason] )
 
 	###*
 	* Logs the resolution or rejection of this Promise with the specified

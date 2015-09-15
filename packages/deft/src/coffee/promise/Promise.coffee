@@ -319,5 +319,5 @@ Ext.define( 'Deft.promise.Promise',
 	* @return {Deft.promise.Promise} A new "pass-through" Promise that is resolved with the original value or rejected with the original reason.
 	###
 	log: ( identifier = '' ) ->
-		return @callParent( arguments )
+		return @callParent( [identifier] )
 )

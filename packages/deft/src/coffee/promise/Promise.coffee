@@ -83,7 +83,7 @@ Ext.define( 'Deft.promise.Promise',
 		* @return {Deft.promise.Promise} A Promise of the specified Promise or value.
 		###
 		when: ( promiseOrValue ) ->
-			return @callParent( arguments )
+			return Ext.promise.Promise.when( promiseOrValue )
 		
 		###*
 		* Determines whether the specified value is a Promise (including third-party untrusted Promises or then()-ables), based on the Promises/A specification feature test.
@@ -92,7 +92,7 @@ Ext.define( 'Deft.promise.Promise',
 		* @return {Boolean} A Boolean indicating whether the specified value was a Promise.
 		###
 		isPromise: ( value ) ->
-			return @callParent( arguments )
+			return Ext.promise.Promise.isPromise( value )
 		
 		###*
 		* Returns a new Promise that will only resolve once all the specified `promisesOrValues` have resolved.
@@ -103,7 +103,7 @@ Ext.define( 'Deft.promise.Promise',
 		* @return {Deft.promise.Promise} A Promise of an Array of the resolved values.
 		###
 		all: ( promisesOrValues ) ->
-			return @callParent( arguments )
+			return Ext.promise.Promise.all( promisesOrValues )
 
 		###*
 		* Initiates a competitive race, returning a new Promise that will resolve when any one of the specified `promisesOrValues` have resolved, or will reject when all `promisesOrValues` have rejected or cancelled.
@@ -114,7 +114,7 @@ Ext.define( 'Deft.promise.Promise',
 		* @return {Deft.promise.Promise} A Promise of the first resolved value.
 		###
 		any: ( promisesOrValues ) ->
-			return @callParent( arguments )
+			return Ext.promise.Promise.any( promisesOrValues )
 		
 		###*
 		* Initiates a competitive race, returning a new Promise that will resolve when `howMany` of the specified `promisesOrValues` have resolved, or will reject when it becomes impossible for `howMany` to resolve.
@@ -126,7 +126,7 @@ Ext.define( 'Deft.promise.Promise',
 		* @return {Deft.promise.Promise} A Promise of the expected number of resolved values.
 		###
 		some: ( promisesOrValues, howMany ) ->
-			return @callParent( arguments )
+			return Ext.promise.Promise.some( promisesOrValues, howMany )
 		
 		###*
 		* Returns a new Promise that will automatically resolve with the specified Promise or value after the specified delay (in milliseconds).
@@ -136,7 +136,7 @@ Ext.define( 'Deft.promise.Promise',
 		* @return {Deft.promise.Promise} A Promise of the specified Promise or value that will resolve after the specified delay.
 		###
 		delay: ( promiseOrValue, milliseconds ) ->
-			return @callParent( arguments )
+			return Ext.promise.Promise.delay( promiseOrValues, milliseconds )
 		
 		###*
 		* Returns a new Promise that will automatically reject after the specified timeout (in milliseconds) if the specified promise has not resolved or rejected.
@@ -146,7 +146,7 @@ Ext.define( 'Deft.promise.Promise',
 		* @return {Deft.promise.Promise} A Promise of the specified Promise or value that enforces the specified timeout.
 		###
 		timeout: ( promiseOrValue, milliseconds ) ->		
-			return @callParent( arguments )
+			return Ext.promise.Promise.timeout( promiseOrValue, milliseconds )
 		
 		###*
 		* Returns a new function that wraps the specified function and caches the results for previously processed inputs.
@@ -159,7 +159,7 @@ Ext.define( 'Deft.promise.Promise',
 		* @return {Function} The new wrapper function.
 		###
 		memoize: ( fn, scope, hashFn ) ->
-			return @callParent( arguments )
+			return Ext.promise.Promise.memoize( fn, scope, hashFn )
 		
 		###*
 		* Traditional map function, similar to `Array.prototype.map()`, that allows input to contain promises and/or values.
@@ -171,7 +171,7 @@ Ext.define( 'Deft.promise.Promise',
 		* @return {Deft.promise.Promise} A Promise of an Array of the mapped resolved values.
 		###
 		map: ( promisesOrValues, mapFn ) ->
-			return @callParent( arguments )
+			return Ext.promise.Promise.map( promisesOrValues, mapFn )
 		
 		###*
 		* Traditional reduce function, similar to `Array.reduce()`, that allows input to contain promises and/or values.
@@ -182,21 +182,21 @@ Ext.define( 'Deft.promise.Promise',
 		* @return {Deft.promise.Promise} A Promise of the reduced value.
 		###
 		reduce: ( promisesOrValues, reduceFn, initialValue ) ->
-			return @callParent( arguments )
+			return Ext.promise.Promise.reduce( promisesOrValues, reduceFn, intialValue )
 		
 		###*
 		* Fallback implementation when Array.reduce is not available.
 		* @private
 		###
 		reduceArray: ( reduceFn, initialValue ) ->
-			return @callParent( arguments )
+			return Ext.promise.Promise.reduceArray( reduceFn, intialValue )
 
 		###*
 		* @private
 		* Rethrows the specified Error on the next turn of the event loop.
 		###
 		rethrowError: ( error ) ->
-			return @callParent( arguments )
+			return Ext.promise.Promise.rethrowError( error )
 
 	###*
 	* @private

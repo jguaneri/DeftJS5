@@ -14,7 +14,7 @@ Open source under the [MIT License](http://en.wikipedia.org/wiki/MIT_License).
 * deferred operation.
 ###
 Ext.define( 'Deft.promise.Deferred',
-	extend: 'Ext.Deferred',
+	extend: 'Ext.promise.Deferred',
 	alternateClassName: [ 'Deft.Deferred' ]
 	
 	statics:
@@ -25,7 +25,7 @@ Ext.define( 'Deft.promise.Deferred',
 		* @return {Deft.promise.Promise} Resolved Promise.
 		###
 		resolve: ( value ) ->
-			return @callParent( arguments )
+			return Ext.promise.Deferred.resolve( value )
 		
 		###*
 		* Convenience method that returns a new Promise rejected with the specified reason.
@@ -34,7 +34,7 @@ Ext.define( 'Deft.promise.Deferred',
 		* @return {Deft.promise.Promise} Rejected Promise.
 		###
 		reject: ( reason ) ->
-			return @callParent( arguments )
+			return Ext.promise.Deferred.reject( reason )
 	
 	constructor: ->
 		return @callParent( arguments )

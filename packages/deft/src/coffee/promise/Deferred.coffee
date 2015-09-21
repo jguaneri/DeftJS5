@@ -14,8 +14,9 @@ Open source under the [MIT License](http://en.wikipedia.org/wiki/MIT_License).
 * deferred operation.
 ###
 Ext.define( 'Deft.promise.Deferred',
-	extend: 'Ext.promise.Deferred',
+	extend: 'Ext.promise.Deferred'
 	alternateClassName: [ 'Deft.Deferred' ]
+
 	
 	statics:
 		###*

@@ -69,8 +69,12 @@ onto the returned Promise. This specifies a callback function that will run whet
 call succeeded or failed.
 ###
 Ext.define( 'Deft.promise.Promise',
-	extend: 'Ext.promise.Promise',
+	extend: 'Ext.promise.Promise'
 	alternateClassName: [ 'Deft.Promise' ]
+	requires: [
+		'Deft.promise.Deferred'
+		'Deft.util.Function'
+	]
 
 	statics:
 		###*
